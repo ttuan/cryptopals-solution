@@ -3,7 +3,7 @@ __author__ = 'tuan'
 # This is my answer for the challenge at http://cryptopals.com/sets/1/challenges/3/
 
 import string
-from Crypto.Util.strxor import strxor
+from Crypto.Util.strxor import strxor_c
 
 # From http://www.data-compression.com/english.html
 freqs = {
@@ -37,23 +37,22 @@ freqs = {
 }
 
 def find_score(s):
-    s.lower()
     score = 0
     for i in s:
         if i in freqs.keys():
             score += freqs[i]
     return score
 
-def main():
-    h = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
+def solve(h):
     hh = h.decode("hex")
 
     score_list = dict()
-    for k in string.ascii_letters:
-        score_list.update({k : find_score(strxor(hh,k*len(hh)))})
+    for k in range(0, 256):
+        score_list.update({k : find_score(strxor_c(hh,k))})
 
     key = max(score_list, key=score_list.get)
-    print strxor(hh, key*len(hh))
+    return strxor_c(hh, key)
 
 if __name__ == '__main__':
-    main()
+    h = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
+    print solve(h)
