@@ -11,7 +11,5 @@ class myMethod:
         print "Hello {0}".format(self.greeting)
 
 
-myInstance = myMethod()
-myInstance.sayHello()
 myInstance = myMethod("Tuan")
 myInstance.sayHello()
