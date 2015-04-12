@@ -1,6 +1,8 @@
 __author__ = 'tuan'
 
 
+
+# be the chance you wanna be in the world
 class myMethod:
     greeting = ""
 
