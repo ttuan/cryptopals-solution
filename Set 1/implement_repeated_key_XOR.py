@@ -14,7 +14,7 @@ def find_repeated_key(key, length):
     return repeatedKey
 
 
-def main(key, s):
+def solve(key, s):
     re_key = find_repeated_key(key,len(s))
     result = strxor(s,re_key).encode("hex")
     return result
@@ -22,4 +22,4 @@ def main(key, s):
 if __name__ == '__main__':
     key = "ICE"
     s = "Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal"
-    print main(key,s)
+    print solve(key,s)

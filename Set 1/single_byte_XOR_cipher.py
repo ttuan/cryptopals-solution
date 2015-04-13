@@ -45,17 +45,17 @@ def find_score(s):
     return score
 
 
-def solve(h):
-    hh = h.decode("hex")
-
+def find_key(hh):
     score_list = dict()
     for k in range(0, 256):
         score_list.update({k : find_score(strxor_c(hh,k))})
 
     key = max(score_list, key=score_list.get)
-    return strxor_c(hh, key)
+    return key
 
 
 if __name__ == '__main__':
     h = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
-    print solve(h)
+    hh = h.decode("hex")
+    print type(find_key(hh))
+    #print strxor_c(hh,find_key(hh))
