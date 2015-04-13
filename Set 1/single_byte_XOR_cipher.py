@@ -36,12 +36,14 @@ freqs = {
     ' ': 0.1918182
 }
 
+
 def find_score(s):
     score = 0
     for i in s:
         if i in freqs.keys():
             score += freqs[i]
     return score
+
 
 def solve(h):
     hh = h.decode("hex")
@@ -52,6 +54,7 @@ def solve(h):
 
     key = max(score_list, key=score_list.get)
     return strxor_c(hh, key)
+
 
 if __name__ == '__main__':
     h = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'

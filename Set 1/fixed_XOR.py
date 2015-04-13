@@ -3,11 +3,14 @@ __author__ = 'tuan'
 
 from Crypto.Util.strxor import strxor
 
-encodedL = '1c0111001f010100061a024b53535009181c'
-encodedR = '686974207468652062756c6c277320657965'
 
-s = encodedL.decode("hex")
-t = encodedR.decode("hex")
+def fixed_xor(a,b):
+	s = a.decode("hex")
+	t = b.decode("hex")
+	return strxor(s,t).encode("hex")
 
-result = strxor(s, t).encode("hex")
-print result
+
+if __name__ == '__main__':
+	a = '1c0111001f010100061a024b53535009181c'
+	b = '686974207468652062756c6c277320657965'
+	print fixed_xor(a,b)
