@@ -1,6 +1,7 @@
 __author__ = 'tuan'
 
 # Be the change you want to see in the world
+# This is solution for challenge 5 in http://cryptopals.com/sets/1/challenges/5/
 
 from Crypto.Util.strxor import strxor
 

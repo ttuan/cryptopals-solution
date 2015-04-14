@@ -1,5 +1,6 @@
 __author__ = 'tuan'
 
+# This is solution for challenge 4 in http://cryptopals.com/sets/1/challenges/4/
 
 import single_byte_XOR_cipher
 

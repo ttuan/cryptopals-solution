@@ -1,6 +1,7 @@
 __author__ = 'tuan'
 
 # be the chance you want to see in the world
+# this is solution for challenge 6 in http://cryptopals.com/sets/1/challenges/6/
 # this is really interesting ^^
 
 

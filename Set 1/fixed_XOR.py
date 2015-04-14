@@ -1,5 +1,6 @@
 __author__ = 'tuan'
 
+# This is solution for challenge 2 in http://cryptopals.com/sets/1/challenges/2/
 
 from Crypto.Util.strxor import strxor
 

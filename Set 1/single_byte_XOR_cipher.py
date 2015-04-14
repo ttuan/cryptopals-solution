@@ -1,6 +1,6 @@
 __author__ = 'tuan'
 
-# This is my answer for the challenge at http://cryptopals.com/sets/1/challenges/3/
+# This is my answer for the challenge 3 at http://cryptopals.com/sets/1/challenges/3/
 
 import string
 from Crypto.Util.strxor import strxor_c

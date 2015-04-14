@@ -1,6 +1,7 @@
 __author__ = 'tuan'
 
 # Be the change you want to see in the world
+# This is solution for challenge 8 in http://cryptopals.com/sets/1/challenges/8/
 
 import collections
 
