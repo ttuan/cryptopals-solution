@@ -13,12 +13,8 @@ def AES_in_CBC_mode(key, iv, data):
 	return result
 
 if __name__ == '__main__':
-	f = open('10.txt')
-	data = f.read()
-	f.close()
-
+	data = base64.b64decode(open('10.txt','r').read())
 	iv = '\x00' * 16
 	key = 'YELLOW SUBMARINE'
-	data = base64.b64decode(data)
 
 	print AES_in_CBC_mode(key, iv, data)
