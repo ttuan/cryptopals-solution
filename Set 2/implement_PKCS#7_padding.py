@@ -2,9 +2,10 @@ __author__ = 'tuan'
 
 # Be the change you want to see in the world
 
-def pad(s, pad_len):
+
+def pad(s, block_size):
 	y = s
-	for i in range(len(s),pad_len):
+	while len(y) % block_size:
 		y += '\x04'
 	return y
 
