@@ -1,0 +1,21 @@
+# This is what really we do with challenge 12
+
+
+Whatever we write will be appended an unknown string (which we must find).
+We have cipher text, which is returned by encrypt function
+
+
+1.We find block size of key by "find_block_size()" function. Feed identical bytes of our-string to the encrypt function
+at a time --- start with 2 byte ("AA"), then "AAAA", then "AAAAAA" and so on. Then compare ciphertext[:guess_block] and
+ciphertext[guess_block : 2 * guess_block]. If they are equal, guess_block is the block size.
+
+2.We don't know what is the mode of encrypt, but we guess it is ECB. So that, we check it with "confirm_ECB(block_size)"
+function.
+
+3.Find each char of Unknown String-- Which we are finding
+++++++++++++++++++++++++
+Note: If our Unknown String is "HELLO WORLD" and block size is 8, we create a input block 'AAAAAAA'
+so that by crafting a input_block that will be 7 bytes, the 8th byte will be H_first letter of Unknown String ('AAAAAAAH').
+We try all i in range(256) and store encrypt[inputBlock + chr(i)][:blockSize] and i in a dictionary.
+When we call dictionary[encrypt[inputBlock][:blockSize]], it will return first character in Unknown String.
++++++++++++++++++++++++++
