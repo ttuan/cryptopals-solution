@@ -4,9 +4,8 @@ __author__ = 'tuan'
 
 
 def pad(s, block_size):
-	y = s
-	while len(y) % block_size:
-		y += '\x04'
+	pad_len = len(s) - len(s) % block_size
+	y = s + pad_len * chr(pad_len)
 	return y
 
 if __name__ == '__main__':
