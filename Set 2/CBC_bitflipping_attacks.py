@@ -47,7 +47,7 @@ def decrypt_ciphertext(ciphertext):
 	What we'll do is send some input like :admin@true’ and flip bits on the cyphertext until,
 	when decrypting, : becomes ; and @ becomes =
 	-----------------------------------------------------------------------------
-	000000000000000000000:admin@true
+	000000000000000000000$admin@true
 	0123456789ABCDEF0123456789ABCDEF
 	-----> You see, ':' is the 5th byte and '@' is the 11
 
@@ -66,16 +66,16 @@ def decrypt_ciphertext(ciphertext):
 
 
 if __name__ == '__main__':
-	u = '000000000000000000000:admin@true'  # 32 bytes
+	u = '000000000000000000000$admin@true'  # 32 bytes
 
-	e = bytearray(encrypt_input_strings(u))
-	f_pos1 = 32 + 5            # why 32 and 5 : 32 because of prepend_string have 32 bytes, so 32 first bytes
+	e = list(encrypt_input_strings(u))
+	#e = encrypt_input_strings(u)
+	f_pos1 = 32 + 5            # why 32 and 5 : 32 because prepend_string have 32 bytes, so 32 first bytes
 	f_pos2 = 32 + 11           # in e will save encrypt of prepend_string, 5 is the position of fake byte in block 3rd
 								# we want to change ';' character in plain text
 
 	# C1' = P2' ^ P2 ^ C1
-	e[f_pos1] = ord(';') ^ ord(':') ^ e[f_pos1]                    # change ':' to ';'
-	e[f_pos2] = ord('@') ^ ord('=') ^ e[f_pos2]
+	e[f_pos1] = chr(ord(';') ^ ord('$') ^ ord(e[f_pos1]))
+	e[f_pos2] = chr(ord('@') ^ ord('=') ^ ord(e[f_pos2]))
 
-
-	print decrypt_ciphertext(bytes(e))
+	print decrypt_ciphertext(''.join(e))
