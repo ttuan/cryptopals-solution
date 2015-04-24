@@ -59,7 +59,11 @@ def find_next_char(block_size, prefix_len, known_string):
 	k1 = block_size - prefix_len % block_size
 	k2 = block_size - len(known_string) % block_size - 1
 	k3 = prefix_len - prefix_len % block_size
-
+	# now, we need append a string with length = k1 + k2. In challenge 12, length is k2.
+	"""
+		<----prefix----><-------input-----><--known string-->
+		<------make an integer block like 2,3,4,.. block---->
+	"""
 	s = 'A' * (k1 + k2)
 	d = {}
 	for i in range(256):
